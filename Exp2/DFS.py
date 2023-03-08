@@ -12,20 +12,17 @@ def path(op):
 found=False
 def DFS(graph,node,key,vis,op):
     vis[node]=True
-    #print(f"{node} added in op")
     op.append(node)
     if node is key:
-        #print(f"{key} found in the graph")
         path(op)
         global found
-        found=True
-       
+        found=True     
         return
     for adjnode in graph[node]:
         if(vis[adjnode] is False):
             DFS(graph,adjnode,key,vis,op)
     op.pop()        
-    #print(f"{node} popped in op")
+    
 
 
 
