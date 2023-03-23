@@ -5,3 +5,4 @@
 
 ## Exp 02 : Depth First Search on Given graph
 - Exp 2 deals with finding the given key using **DFS** Traversal
+- Variations: DFS giving **optimla path** only, DFS with **depth limit** and **Iterative** Depth limit DFS
