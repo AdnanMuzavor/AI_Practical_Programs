@@ -35,7 +35,7 @@ tree = {
     'G': []
 }
 
-start, goal = input("Enter start state, goal state: ").split(" ")
+start, goal = input("Enter styart state, goal state: ").split(" ")
 path = [start]
 max_depth = 2
 print(f"____________________________________________")

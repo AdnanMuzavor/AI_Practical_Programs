@@ -34,5 +34,5 @@ tree={
       'G':[]
       
       }
-start, goal = input("Enter the start node and goal node: ").split(" ")
+start = input("Enter the start node ")
 dfs(start, tree)  # T R A V E R S A  L
