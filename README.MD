@@ -12,3 +12,7 @@
 - Best First Seartch is heuristic based search algoeithm where in at each each iteration,
   node is selected based on heuristic value **only**
 - **Lower** the heuristic value ***h*** more chances of node getting selected.
+
+## EXP 04: A* Search
+- Exp 4 is based on Optimal Search algorithm which is used to find path with least cost from src to des
+- It uses **f=g+h** where g is edge cost and h is heuristic associated with node to which edges goes from current edge
