@@ -11,6 +11,12 @@ graph = [
         ['F', 'H', 1, 0],
         ['G', 'H', 2, 0],
 ]
+"""graph=[
+       ['A','B',1,0],
+       ['A','C',5,0],
+       ['B','E',1,20],
+       ['C','E',7,2]
+       ]"""
 
 nodes = set([])  # Set so that it has unique values only
 for edges in graph:
@@ -19,6 +25,7 @@ for edges in graph:
 
 # Init the requirements
 cost = dict()
+
 path = dict()
 openl = set()
 closel = set()
@@ -48,13 +55,14 @@ def AStar(start, goal, openl, closel, cost):
             NEW_COST = cost[from_node]+edges[2]+edges[3]
             OLD_COST = cost[to_node]
 
-            #print(NEW_COST, OLD_COST)
+            print(NEW_COST, OLD_COST)
             if NEW_COST < OLD_COST:
-                print("found that path to: ", to_node, " via ", from_node, " is shorter with cost: ",
-                      cost[from_node]+edges[2]+edges[3], " which is < ", cost[to_node])
-                cost[to_node] = NEW_COST
-                path[edges[1]] = path[from_node]+" - > "+to_node
-
+                 print("found that path to: ", to_node, " via ", from_node, " is shorter with cost: ",
+                       cost[from_node]+edges[2]+edges[3], " which is < ", cost[to_node])
+                 cost[to_node] = NEW_COST
+                 path[edges[1]] = path[from_node]+"->"+to_node
+                
+ 
     cost[start] = 10000  # Prevent start from getting selected again
     smallest = min(cost, key=cost.get)
 
@@ -64,4 +72,24 @@ def AStar(start, goal, openl, closel, cost):
 
 
 AStar(start, goal, openl, closel, cost)
-print("Path is: ", path[goal])
+#PROCESS THE COST
+
+#Get the cost of node
+cost_goal=cost[goal]
+
+#Get nodes in path
+to_nodes=path[goal].split("->")
+
+
+#Since cost has state/heuristic value too, subtract heuristic values
+print(to_nodes)
+for i in range(len(to_nodes)-1):
+    from_node=to_nodes[i]
+    to_node=to_nodes[i+1]
+    print("processing: ",from_node," -> ",to_node)
+    for edges in graph:
+        if edges[0]==from_node and edges[1]==to_node:
+            cost_goal=cost_goal-edges[3]
+            break
+    
+print("Path is: ", path[goal]," and cost is: ",cost_goal)
