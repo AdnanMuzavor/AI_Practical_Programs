@@ -25,26 +25,19 @@ for connectionL in connection_list:
 
 for connectionL in final_list:
     connection_list.append(connectionL)
-print("City connection are:", connection_list)
 
-
-start = input("Enter the starting city")
+start = input("Enter the starting city: ")
 
 
 def TSP(connection_list, current, start, visited, total_cost, nodes_count):
     print(current, start)
-    found=False
     if len(visited) == nodes_count:
         for connectionL in connection_list:
             if (connectionL[0] == current and connectionL[1] == start):
-                print("found: ",connectionL)
                 total_cost = total_cost+connectionL[2]
-                found=True
                 break
-        if found:
-                print("Path is: ", visited, " Total cost : ", total_cost)
-        else:
-                print(f"Stuck at maxima, no way to {start}")    
+
+        print("Path is: ", visited, " Total cost : ", total_cost) 
         return
     selected_node = ""
     selected_cost = 100000
