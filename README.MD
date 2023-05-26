@@ -23,3 +23,9 @@
 ### 5.2: 8- Puzzle Problem**
 - Here given a **3 x 3** and initial state we have to move the **dash** inside to reach to the goal state.
 
+## EXP 06: 2,3 Jug problem
+- Given jugs with maximum capacity and wither initial water in them or a pump, task is to reach the goal state.
+
+## EXP 07: Logical Gates Using neural Network
+- This experiment showcases various logical gates which are implemented using concepts of neural networks each 
+  gate having a **bias**  value and **weights** for inputs.
